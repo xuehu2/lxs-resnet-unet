@@ -45,7 +45,7 @@ if __name__ == "__main__":
             os.makedirs(pred_dir)
             
         print("Load model.")
-        model = Resnet34_Unet()
+        model = Resnet50_Unet()
         print("Load model done.")
 
         print("Get predict result.")

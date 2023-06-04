@@ -51,7 +51,7 @@ def try_count_flops(model: Union[tf.Module, tf.keras.Model],
       return None
   return None
 
-model = Resnet34_Unet()
+model = Resnet50_Unet()
 model.summary()
 flops = try_count_flops(model)
 print(flops/1000000000,"G Flops")

@@ -19,7 +19,7 @@ def generate_arrays_from_file(lines,batch_size):
             #   读取输入图片并进行归一化和resize
             #-------------------------------------#
             name = lines[i].split()[0]
-            img = Image.open("D:/BaiduNetdiskDownload/UDD5/img/{}.png".format(name))
+            img = Image.open("dataset/resize_image/{}.png".format(name))
             img = img.resize((512,512), Image.BICUBIC)
             img = np.array(img)/255
             X_train.append(img)
@@ -28,7 +28,7 @@ def generate_arrays_from_file(lines,batch_size):
             #   读取标签图片并进行归一化和resize
             #-------------------------------------#
             name = lines[i].split()[0]
-            label = Image.open("D:/BaiduNetdiskDownload/UDD5/label_gray/{}.png".format(name))
+            label = Image.open("dataset/resize_label_gray/{}.png".format(name))
             label = np.array(label)
             one_hot_label = np.eye(2)[label]
             Y_train.append(one_hot_label)
@@ -74,3 +74,4 @@ if __name__ == "__main__":
                 epochs=500,
                 initial_epoch=0,
                 callbacks=[checkpoint, reduce_lr,early_stopping])
+        
